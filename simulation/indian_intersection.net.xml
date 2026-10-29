@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<net version="1.8"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+    <location netOffset="0.00,0.00" convBoundary="0.00,0.00,200.00,200.00" origBoundary="0,0,200,200" projParameter="!"/>
+
+    <junction id="center" type="traffic_light" x="100.00" y="100.00"/>
+    <junction id="N" type="priority" x="100.00" y="200.00"/>
+    <junction id="S" type="priority" x="100.00" y="0.00"/>
+    <junction id="E" type="priority" x="200.00" y="100.00"/>
+    <junction id="W" type="priority" x="0.00" y="100.00"/>
+
+    <edge id="N_to_center" from="N" to="center">
+        <lane id="N_to_center_0" index="0" speed="13.89" length="100.0" shape="100.00,200.00 100.00,101.60"/>
+    </edge>
+    <edge id="S_to_center" from="S" to="center">
+        <lane id="S_to_center_0" index="0" speed="13.89" length="100.0" shape="100.00,0.00 100.00,98.40"/>
+    </edge>
+    <edge id="E_to_center" from="E" to="center">
+        <lane id="E_to_center_0" index="0" speed="13.89" length="100.0" shape="200.00,100.00 101.60,100.00"/>
+    </edge>
+    <edge id="W_to_center" from="W" to="center">
+        <lane id="W_to_center_0" index="0" speed="13.89" length="100.0" shape="0.00,100.00 98.40,100.00"/>
+    </edge>
+    <edge id="center_to_N" from="center" to="N">
+        <lane id="center_to_N_0" index="0" speed="13.89" length="100.0" shape="100.00,101.60 100.00,200.00"/>
+    </edge>
+    <edge id="center_to_S" from="center" to="S">
+        <lane id="center_to_S_0" index="0" speed="13.89" length="100.0" shape="100.00,98.40 100.00,0.00"/>
+    </edge>
+    <edge id="center_to_E" from="center" to="E">
+        <lane id="center_to_E_0" index="0" speed="13.89" length="100.0" shape="101.60,100.00 200.00,100.00"/>
+    </edge>
+    <edge id="center_to_W" from="center" to="W">
+        <lane id="center_to_W_0" index="0" speed="13.89" length="100.0" shape="98.40,100.00 0.00,100.00"/>
+    </edge>
+
+    <connection from="N_to_center" to="center_to_S" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from="S_to_center" to="center_to_N" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from="W_to_center" to="center_to_E" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from="E_to_center" to="center_to_W" fromLane="0" toLane="0" dir="s" state="M"/>
+
+    <tlLogic id="center" type="static" programID="0" offset="0">
+        <phase duration="31" state="GGgrrrGGgrrr"/>
+        <phase duration="4" state="yyyrrryyyrrr"/>
+        <phase duration="31" state="rrrGGGrrrGGG"/>
+        <phase duration="4" state="rrryyyrrryyy"/>
+    </tlLogic>
+</net>

@@ -1,0 +1,17 @@
+# For Reinforcement Learning & Simulation Environment
+gymnasium
+stable-baselines3[extra]
+pettingzoo
+ray[rllib]
+
+# For Data Handling and Forecasting Model
+pandas
+torch
+scikit-learn
+
+# For the Dashboard User Interface
+streamlit
+
+# For Vision Processing (even if simulated)
+numpy
+opencv-python
